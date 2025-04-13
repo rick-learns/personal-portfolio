@@ -1,14 +1,14 @@
-import { Code2, LayoutDashboard, Database, Lightbulb } from 'lucide-react';
+import { ShieldCheck, Code2, Server, Headphones } from 'lucide-react';
 import TerminalWindow from './TerminalWindow';
 import { aboutCards } from '@/lib/data';
 
 const AboutSection = () => {
   // Map for icon components
   const iconMap = {
+    ShieldCheck: <ShieldCheck className="text-orange-500" />,
     Code2: <Code2 className="text-orange-500" />,
-    LayoutDashboard: <LayoutDashboard className="text-orange-500" />,
-    Database: <Database className="text-orange-500" />,
-    Lightbulb: <Lightbulb className="text-orange-500" />
+    Server: <Server className="text-orange-500" />,
+    Headphones: <Headphones className="text-orange-500" />
   };
 
   return (
@@ -19,9 +19,9 @@ const AboutSection = () => {
             <span className="text-orange-500">~/</span>about<span className="text-orange-500">_me</span>
           </h2>
           <div className="h-1 w-24 bg-orange-500 rounded-full mb-8"></div>
-          <p className="text-center text-gray-300 max-w-2xl font-sans">
-            Passionate software developer with a focus on creating elegant solutions to complex problems.
-            I bring creativity and technical expertise to every project.
+          <p className="text-center text-slate-300 max-w-2xl font-sans">
+            Quality Engineer with a passion for building diagnostic tools and improving software reliability.
+            With a gaming background, I bring focus, adaptability, and teamwork to every challenge.
           </p>
         </div>
         
@@ -29,25 +29,28 @@ const AboutSection = () => {
           <TerminalWindow title="~/about/bio.md">
             <div className="mb-4">
               <h3 className="text-xl font-semibold text-orange-500 mb-2"># Professional Journey</h3>
-              <p className="text-gray-300 mb-2">
-                Started my coding journey 5 years ago, working on web applications and interactive user interfaces.
+              <p className="text-slate-300 mb-2">
+                My passion for technology was sparked through gaming, with titles like Starcraft, Diablo II, and Counter-Strike opening the door to a world of systems and technical curiosity.
               </p>
-              <p className="text-gray-300">
-                Currently working as a Senior Developer at TechCorp, focusing on scalable frontend architecture.
+              <p className="text-slate-300 mb-2">
+                I even competed professionally in Counter-Strike, traveling internationally and gaining invaluable experience in focus, adaptability, and teamwork under pressure.
+              </p>
+              <p className="text-slate-300">
+                Today, I work as a Quality Engineer at DNSFilter, where I ensure the reliability and performance of our MacOS Roaming Client through rigorous testing and tool development.
               </p>
             </div>
             
             <div className="mb-4">
-              <h3 className="text-xl font-semibold text-orange-500 mb-2"># Education</h3>
-              <p className="text-gray-300">
-                B.S. in Computer Science from Tech University (2018-2022)
+              <h3 className="text-xl font-semibold text-orange-500 mb-2"># Certifications</h3>
+              <p className="text-slate-300">
+                CompTIA Network+
               </p>
             </div>
             
             <div>
               <h3 className="text-xl font-semibold text-orange-500 mb-2"># Personal Interests</h3>
-              <p className="text-gray-300">
-                When I'm not coding, you'll find me hiking in nature, reading sci-fi novels, or experimenting with new cooking recipes.
+              <p className="text-slate-300">
+                Outside of work, I enjoy attending music concerts, playing golf, gaming, cooking, and tinkering with technology projects.
               </p>
             </div>
           </TerminalWindow>
@@ -59,7 +62,7 @@ const AboutSection = () => {
                   {iconMap[card.icon as keyof typeof iconMap]}
                 </div>
                 <h3 className="font-heading text-lg font-semibold mb-2">{card.title}</h3>
-                <p className="text-gray-300 text-sm">{card.description}</p>
+                <p className="text-slate-300 text-sm">{card.description}</p>
               </div>
             ))}
           </div>
