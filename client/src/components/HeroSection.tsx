@@ -30,6 +30,9 @@ const HeroSection = () => {
                 <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">Swift</span>
                 <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">PowerShell</span>
                 <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">Bash</span>
+                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">React</span>
+                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">TypeScript</span>
+                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">Tailwind CSS</span>
                 <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">Quality Assurance</span>
               </div>
               
@@ -40,6 +43,7 @@ const HeroSection = () => {
                 macos-diagnostic-utility.go<br/>
                 support-scripts.ps1<br/>
                 qa-test-framework.sh<br/>
+                portfolio-website.tsx<br/>
               </div>
               
               <div>

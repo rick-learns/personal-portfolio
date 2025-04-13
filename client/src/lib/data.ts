@@ -32,7 +32,8 @@ export const frontendSkills: Skill[] = [
   { name: "Swift", percentage: 80 },
   { name: "PowerShell", percentage: 90 },
   { name: "Bash", percentage: 95 },
-  { name: "SQL", percentage: 75 },
+  { name: "React", percentage: 75 },
+  { name: "TypeScript", percentage: 70 },
 ];
 
 export const backendSkills: Skill[] = [
@@ -47,6 +48,7 @@ export const toolsSkills: Skill[] = [
   { name: "Git & GitHub", percentage: 90 },
   { name: "Docker", percentage: 80 },
   { name: "AWS", percentage: 75 },
+  { name: "Tailwind CSS", percentage: 70 },
   { name: "JIRA/Confluence", percentage: 95 },
   { name: "Virtualization", percentage: 85 },
 ];
@@ -75,6 +77,9 @@ export const techBadges: TechBadge[] = [
   { name: "PowerShell" },
   { name: "Bash" },
   { name: "SQL" },
+  { name: "React" },
+  { name: "TypeScript" },
+  { name: "Tailwind CSS" },
   { name: "Docker" },
   { name: "AWS" },
   { name: "TestAutomation" },
@@ -125,6 +130,13 @@ export const projects: Project[] = [
     tags: ["Test Automation", "Exploratory Testing", "JIRA", "Confluence"],
     fileType: "[Testing, Automation, CI/CD]",
     technologies: ["Test Automation", "Exploratory Testing", "JIRA", "Confluence"],
+  },
+  {
+    title: "Developer Portfolio Website",
+    description: "Built a modern, responsive portfolio website using React, TypeScript, and Tailwind CSS with a terminal-inspired aesthetic to showcase technical skills and projects.",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Responsive Design"],
+    fileType: "[React, TypeScript, Web]",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Responsive Design"],
   },
 ];
 
