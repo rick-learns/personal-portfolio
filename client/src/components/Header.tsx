@@ -38,7 +38,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-blue-950/80 backdrop-blur-md z-50 px-4 py-3 border-b border-gray-800">
+    <header className="fixed top-0 left-0 right-0 bg-slate-950/80 backdrop-blur-md z-50 px-4 py-3 border-b border-slate-800">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <span className="font-mono font-semibold text-orange-500 text-xl">dev@</span>
@@ -73,7 +73,7 @@ const Header = () => {
       
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-blue-900 border-b border-gray-800 animate-fade-in">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-slate-900 border-b border-slate-800 animate-fade-in">
           <ul className="container mx-auto py-4 px-4 space-y-3">
             {navItems.map((item) => (
               <li key={item.name}>

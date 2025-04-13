@@ -12,7 +12,7 @@ const AboutSection = () => {
   };
 
   return (
-    <section id="about" className="py-24 px-4 bg-gradient-to-b from-blue-900 to-blue-950">
+    <section id="about" className="py-24 px-4 bg-gradient-to-b from-slate-900 to-slate-950">
       <div className="container mx-auto">
         <div className="flex flex-col items-center mb-12">
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 relative">
@@ -54,7 +54,7 @@ const AboutSection = () => {
           
           <div className="grid grid-cols-2 gap-5">
             {aboutCards.map((card, index) => (
-              <div key={index} className="bg-blue-900/50 rounded-lg p-6 backdrop-blur-sm border border-gray-800 hover:border-orange-500/50 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/10">
+              <div key={index} className="bg-slate-900/50 rounded-lg p-6 backdrop-blur-sm border border-slate-800 hover:border-orange-500/50 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/10">
                 <div className="bg-orange-500/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
                   {iconMap[card.icon as keyof typeof iconMap]}
                 </div>

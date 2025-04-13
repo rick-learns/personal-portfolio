@@ -42,11 +42,11 @@
   }
 
   body {
-    @apply font-sans antialiased bg-blue-950 text-foreground overflow-x-hidden;
+    @apply font-sans antialiased bg-slate-950 text-foreground overflow-x-hidden;
   }
 
   .terminal-window {
-    @apply rounded-lg bg-blue-900 shadow-lg relative;
+    @apply rounded-lg bg-slate-900 shadow-lg relative;
   }
 
   .terminal-header {

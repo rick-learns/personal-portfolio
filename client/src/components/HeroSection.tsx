@@ -5,7 +5,7 @@ import { developerInfo } from '@/lib/data';
 const HeroSection = () => {
   return (
     <section id="hero" className="min-h-screen flex items-center px-4 py-16 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-950 to-blue-900 opacity-50"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 to-slate-900 opacity-50"></div>
       
       {/* Background grid pattern */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMxRTI5M0IiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMCAwaDYwdjYwSDB6TTMwIDMwaDMwdjMwSDMwek0wIDMwaDMwdjMwSDB6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-5"></div>
@@ -26,11 +26,11 @@ const HeroSection = () => {
                 <span className="terminal-prompt">cat skills.txt</span>
               </div>
               <div className="cmd-output mb-4">
-                <span className="inline-block bg-blue-800/50 text-blue-300 px-2 py-1 rounded mr-2 mb-2">JavaScript</span>
-                <span className="inline-block bg-blue-800/50 text-blue-300 px-2 py-1 rounded mr-2 mb-2">TypeScript</span>
-                <span className="inline-block bg-blue-800/50 text-blue-300 px-2 py-1 rounded mr-2 mb-2">React</span>
-                <span className="inline-block bg-blue-800/50 text-blue-300 px-2 py-1 rounded mr-2 mb-2">SvelteKit</span>
-                <span className="inline-block bg-blue-800/50 text-blue-300 px-2 py-1 rounded mr-2 mb-2">Node.js</span>
+                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">JavaScript</span>
+                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">TypeScript</span>
+                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">React</span>
+                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">SvelteKit</span>
+                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">Node.js</span>
               </div>
               
               <div className="mb-2">
@@ -57,7 +57,7 @@ const HeroSection = () => {
               </a>
               <a 
                 href="#contact" 
-                className="border border-gray-600 hover:border-orange-500 text-white font-semibold py-3 px-6 rounded-md transition-all hover:bg-blue-900/30 flex items-center justify-center"
+                className="border border-slate-600 hover:border-orange-500 text-white font-semibold py-3 px-6 rounded-md transition-all hover:bg-slate-800/30 flex items-center justify-center"
               >
                 <Mail className="mr-2 h-5 w-5" />
                 Get in Touch
@@ -68,9 +68,9 @@ const HeroSection = () => {
           <div className="order-1 md:order-2 flex justify-center animate-fade-in">
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-orange-400 opacity-70 blur-lg rounded-full"></div>
-              <div className="relative rounded-full w-64 h-64 bg-blue-900 border-4 border-blue-900 overflow-hidden">
+              <div className="relative rounded-full w-64 h-64 bg-slate-900 border-4 border-slate-800 overflow-hidden">
                 {/* This would be replaced with an actual image in production */}
-                <div className="w-full h-full flex items-center justify-center text-gray-400">
+                <div className="w-full h-full flex items-center justify-center text-slate-400">
                   Developer Portrait
                 </div>
               </div>
