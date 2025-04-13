@@ -74,7 +74,7 @@ const ContactSection = () => {
             <span className="text-orange-500">~/</span>contact<span className="text-orange-500">_me</span>
           </h2>
           <div className="h-1 w-24 bg-orange-500 rounded-full mb-8"></div>
-          <p className="text-center text-gray-300 max-w-2xl font-sans">
+          <p className="text-center text-slate-300 max-w-2xl font-sans">
             Have a project in mind or want to discuss opportunities? I'd love to hear from you.
           </p>
         </div>
@@ -123,7 +123,7 @@ const ContactSection = () => {
                   <a 
                     key={index} 
                     href={social.url} 
-                    className="flex items-center gap-2 bg-blue-900/30 border border-gray-800 hover:border-orange-500 px-4 py-2 rounded-full transition-all hover:bg-blue-900/50"
+                    className="flex items-center gap-2 bg-slate-900/30 border border-slate-800 hover:border-orange-500 px-4 py-2 rounded-full transition-all hover:bg-slate-800/50"
                   >
                     {socialIcons[social.name as keyof typeof socialIcons]}
                     {social.name}
@@ -135,19 +135,19 @@ const ContactSection = () => {
           
           <div>
             <form 
-              className="bg-blue-900/50 rounded-lg p-6 border border-gray-800"
+              className="bg-slate-900/50 rounded-lg p-6 border border-slate-800"
               onSubmit={handleSubmit}
             >
               <div className="mb-6">
                 <label htmlFor="name" className="block font-mono text-sm mb-2">Name</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-user text-gray-400"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-user text-slate-500"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                   </div>
                   <input 
                     type="text" 
                     id="name" 
-                    className="w-full bg-blue-900/40 border border-gray-700 rounded-md py-3 pl-10 pr-3 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500" 
+                    className="w-full bg-slate-800/50 border border-slate-700 rounded-md py-3 pl-10 pr-3 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500" 
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
@@ -159,12 +159,12 @@ const ContactSection = () => {
                 <label htmlFor="email" className="block font-mono text-sm mb-2">Email</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-mail text-gray-400"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-mail text-slate-500"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                   </div>
                   <input 
                     type="email" 
                     id="email" 
-                    className="w-full bg-blue-900/40 border border-gray-700 rounded-md py-3 pl-10 pr-3 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500" 
+                    className="w-full bg-slate-800/50 border border-slate-700 rounded-md py-3 pl-10 pr-3 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500" 
                     placeholder="your.email@example.com"
                     value={formData.email}
                     onChange={handleChange}
@@ -176,12 +176,12 @@ const ContactSection = () => {
                 <label htmlFor="subject" className="block font-mono text-sm mb-2">Subject</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-briefcase text-gray-400"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-briefcase text-slate-500"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
                   </div>
                   <input 
                     type="text" 
                     id="subject" 
-                    className="w-full bg-blue-900/40 border border-gray-700 rounded-md py-3 pl-10 pr-3 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500" 
+                    className="w-full bg-slate-800/50 border border-slate-700 rounded-md py-3 pl-10 pr-3 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500" 
                     placeholder="Project Discussion"
                     value={formData.subject}
                     onChange={handleChange}
@@ -194,7 +194,7 @@ const ContactSection = () => {
                 <textarea 
                   id="message" 
                   rows={5} 
-                  className="w-full bg-blue-900/40 border border-gray-700 rounded-md py-3 px-4 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500" 
+                  className="w-full bg-slate-800/50 border border-slate-700 rounded-md py-3 px-4 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500" 
                   placeholder="Tell me about your project..."
                   value={formData.message}
                   onChange={handleChange}
