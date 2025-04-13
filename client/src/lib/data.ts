@@ -28,115 +28,114 @@ export type Project = {
 };
 
 export const frontendSkills: Skill[] = [
-  { name: "JavaScript", percentage: 95 },
-  { name: "TypeScript", percentage: 90 },
-  { name: "React", percentage: 85 },
-  { name: "SvelteKit", percentage: 80 },
-  { name: "TailwindCSS", percentage: 90 },
+  { name: "Go", percentage: 85 },
+  { name: "Swift", percentage: 80 },
+  { name: "PowerShell", percentage: 90 },
+  { name: "Bash", percentage: 95 },
+  { name: "SQL", percentage: 75 },
 ];
 
 export const backendSkills: Skill[] = [
-  { name: "Node.js", percentage: 85 },
-  { name: "Express", percentage: 80 },
-  { name: "PostgreSQL", percentage: 75 },
-  { name: "MongoDB", percentage: 70 },
-  { name: "GraphQL", percentage: 65 },
+  { name: "Exploratory Testing", percentage: 95 },
+  { name: "Test Automation", percentage: 85 },
+  { name: "API Testing", percentage: 90 },
+  { name: "Test Case Development", percentage: 95 },
+  { name: "UAT", percentage: 85 },
 ];
 
 export const toolsSkills: Skill[] = [
   { name: "Git & GitHub", percentage: 90 },
-  { name: "Docker", percentage: 75 },
-  { name: "AWS", percentage: 70 },
-  { name: "CI/CD", percentage: 80 },
-  { name: "Vercel/Netlify", percentage: 85 },
+  { name: "Docker", percentage: 80 },
+  { name: "AWS", percentage: 75 },
+  { name: "JIRA/Confluence", percentage: 95 },
+  { name: "Virtualization", percentage: 85 },
 ];
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: "Frontend Development",
-    fileName: "~/skills/frontend.json",
+    title: "Programming Languages",
+    fileName: "~/skills/languages.json",
     skills: frontendSkills,
   },
   {
-    title: "Backend Development",
-    fileName: "~/skills/backend.json",
+    title: "Quality Engineering",
+    fileName: "~/skills/quality.json",
     skills: backendSkills,
   },
   {
-    title: "Tools & Deployment",
+    title: "Tools & Platforms",
     fileName: "~/skills/tools.json",
     skills: toolsSkills,
   },
 ];
 
 export const techBadges: TechBadge[] = [
-  { name: "JavaScript" },
-  { name: "TypeScript" },
-  { name: "React" },
-  { name: "SvelteKit" },
-  { name: "Node.js" },
-  { name: "TailwindCSS" },
-  { name: "GraphQL" },
+  { name: "Go" },
+  { name: "Swift" },
+  { name: "PowerShell" },
+  { name: "Bash" },
+  { name: "SQL" },
   { name: "Docker" },
+  { name: "AWS" },
+  { name: "TestAutomation" },
+  { name: "CompTIA Network+" },
 ];
 
 export const aboutCards: AboutCard[] = [
   {
-    title: "Web Development",
-    description: "Building responsive and accessible web applications using modern frameworks.",
+    title: "Quality Engineering",
+    description: "Ensuring software reliability through comprehensive testing, edge case validation, and continuous improvement processes.",
+    icon: "ShieldCheck",
+  },
+  {
+    title: "Automation & Tools",
+    description: "Developing diagnostic tools and scripts that improve workflow efficiency and solve complex technical challenges.",
     icon: "Code2",
   },
   {
-    title: "UI/UX Design",
-    description: "Creating intuitive interfaces with a focus on user experience and accessibility.",
-    icon: "LayoutDashboard",
+    title: "Virtualization",
+    description: "Working with VMWare, Hyper-V, and other virtualization platforms to replicate environments and diagnose issues.",
+    icon: "Server",
   },
   {
-    title: "Backend Systems",
-    description: "Developing robust APIs and backend services that power complex applications.",
-    icon: "Database",
-  },
-  {
-    title: "Problem Solving",
-    description: "Finding efficient solutions to complex technical challenges through logical thinking.",
-    icon: "Lightbulb",
+    title: "Technical Support",
+    description: "Resolving complex technical issues with a methodical approach and clear documentation for future reference.",
+    icon: "Headphones",
   },
 ];
 
 export const projects: Project[] = [
   {
-    title: "E-Commerce Platform",
-    description: "A fully responsive e-commerce platform with product filtering, user authentication, and payment processing.",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    fileType: "[React, Node.js, MongoDB]",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+    title: "macOS Roaming Client Diagnostic Utility",
+    description: "Developed a comprehensive diagnostic tool for macOS, automating data collection and S3 uploads to drastically reduce troubleshooting time for the support team.",
+    tags: ["GoLang", "Swift", "AWS S3", "Diagnostics"],
+    fileType: "[GoLang, Swift, AWS]",
+    technologies: ["GoLang", "Swift", "AWS S3", "macOS"],
   },
   {
-    title: "Weather Dashboard",
-    description: "A sleek weather dashboard application with location-based forecasts, interactive maps, and historical data.",
-    tags: ["SvelteKit", "TypeScript", "OpenWeatherAPI", "Tailwind"],
-    fileType: "[SvelteKit, TypeScript, API]",
-    technologies: ["SvelteKit", "TypeScript", "OpenWeatherAPI", "Tailwind"],
+    title: "Support Diagnostic Script Suite",
+    description: "Created a collection of PowerShell and Bash diagnostic scripts deployed to 350,000+ devices globally, improving support resolution times by 63%.",
+    tags: ["PowerShell", "Bash", "Diagnostics", "Troubleshooting"],
+    fileType: "[PowerShell, Bash, Scripts]",
+    technologies: ["PowerShell", "Bash", "Diagnostics", "Troubleshooting"],
   },
   {
-    title: "Taskify Pro",
-    description: "A collaborative task management application with real-time updates, team workspaces, and productivity analytics.",
-    tags: ["React", "Redux", "Firebase", "Material UI"],
-    fileType: "[React, Redux, Firebase]",
-    technologies: ["React", "Redux", "Firebase", "Material UI"],
+    title: "Quality Assurance Test Framework",
+    description: "Designed and implemented comprehensive test suites that reduced post-release defects by 32% and improved release cycle efficiency by 19%.",
+    tags: ["Test Automation", "Exploratory Testing", "JIRA", "Confluence"],
+    fileType: "[Testing, Automation, CI/CD]",
+    technologies: ["Test Automation", "Exploratory Testing", "JIRA", "Confluence"],
   },
 ];
 
 export const developerInfo = {
-  name: "John Doe",
-  title: "Software Developer & UI/UX Enthusiast",
-  email: "hello@johndev.com",
-  location: "San Francisco, CA",
-  availability: "Available for freelance projects",
+  name: "Rick Cohen",
+  title: "Quality Engineer & Diagnostic Tools Developer",
+  email: "rickykcohen@gmail.com",
+  location: "Remote",
+  availability: "Currently working at DNSFilter",
   socials: [
-    { name: "GitHub", url: "#" },
-    { name: "LinkedIn", url: "#" },
-    { name: "Twitter", url: "#" },
-    { name: "Dribbble", url: "#" },
+    { name: "GitHub", url: "https://github.com/rick-learns" },
+    { name: "LinkedIn", url: "https://linkedin.com/in/rickykcohen" },
   ],
 };

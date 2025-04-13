@@ -10,9 +10,9 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, imageIndex }) => {
   // A collection of placeholder colors for project thumbnails
   const placeholderColors = [
-    'bg-gradient-to-br from-blue-700 to-indigo-900',
-    'bg-gradient-to-br from-purple-700 to-blue-900',
-    'bg-gradient-to-br from-indigo-700 to-purple-900',
+    'bg-gradient-to-br from-slate-800 to-slate-950',
+    'bg-gradient-to-br from-slate-700 to-slate-900',
+    'bg-gradient-to-br from-orange-900/30 to-slate-900',
   ];
 
   return (
