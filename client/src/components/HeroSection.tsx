@@ -19,18 +19,18 @@ const HeroSection = () => {
               </div>
               <div className="cmd-output mb-4">
                 <span className="text-2xl font-bold text-white">{developerInfo.name}</span><br/>
-                <span className="text-gray-300">{developerInfo.title}</span>
+                <span className="text-slate-300">{developerInfo.title}</span>
               </div>
               
               <div className="mb-2">
                 <span className="terminal-prompt">cat skills.txt</span>
               </div>
               <div className="cmd-output mb-4">
-                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">JavaScript</span>
-                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">TypeScript</span>
-                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">React</span>
-                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">SvelteKit</span>
-                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">Node.js</span>
+                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">GoLang</span>
+                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">Swift</span>
+                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">PowerShell</span>
+                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">Bash</span>
+                <span className="inline-block bg-slate-800/50 text-slate-300 px-2 py-1 rounded mr-2 mb-2">Quality Assurance</span>
               </div>
               
               <div className="mb-2">

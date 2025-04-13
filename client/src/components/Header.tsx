@@ -41,8 +41,8 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 bg-slate-950/80 backdrop-blur-md z-50 px-4 py-3 border-b border-slate-800">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
-          <span className="font-mono font-semibold text-orange-500 text-xl">dev@</span>
-          <span className="font-mono font-semibold text-white">portfolio</span>
+          <span className="font-mono font-semibold text-orange-500 text-xl">qa@</span>
+          <span className="font-mono font-semibold text-white">rickcohen</span>
         </div>
         
         {/* Desktop Navigation */}
