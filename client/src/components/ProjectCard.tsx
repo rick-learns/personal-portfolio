@@ -16,22 +16,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, imageIndex }) => {
   ];
 
   return (
-    <div className="bg-blue-900/50 rounded-lg overflow-hidden border border-gray-800 hover:border-orange-500/50 transition-all group hover:-translate-y-2 hover:shadow-lg hover:shadow-orange-500/10">
+    <div className="bg-slate-900/50 rounded-lg overflow-hidden border border-slate-800 hover:border-orange-500/50 transition-all group hover:-translate-y-2 hover:shadow-lg hover:shadow-orange-500/10">
       <div className="relative">
         <div className={`w-full h-48 ${placeholderColors[imageIndex % placeholderColors.length]} flex items-center justify-center text-gray-400`}>
           {project.title} Thumbnail
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-blue-900 to-transparent opacity-70"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-70"></div>
       </div>
       
       <div className="p-6">
-        <div className="font-mono text-xs text-gray-400 mb-2">{project.fileType}</div>
+        <div className="font-mono text-xs text-slate-400 mb-2">{project.fileType}</div>
         <h3 className="text-xl font-bold mb-3 group-hover:text-orange-500 transition-colors">{project.title}</h3>
-        <p className="text-gray-300 text-sm mb-4">{project.description}</p>
+        <p className="text-slate-300 text-sm mb-4">{project.description}</p>
         
         <div className="flex flex-wrap gap-2 mb-6">
           {project.tags.map((tag, index) => (
-            <span key={index} className="bg-blue-800/50 text-blue-300 px-2 py-1 rounded text-xs">{tag}</span>
+            <span key={index} className="bg-slate-800/50 text-slate-300 px-2 py-1 rounded text-xs">{tag}</span>
           ))}
         </div>
         
