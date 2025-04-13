@@ -37,9 +37,9 @@ const HeroSection = () => {
                 <span className="terminal-prompt">ls projects/</span>
               </div>
               <div className="cmd-output mb-4">
-                e-commerce-platform.svelte<br/>
-                weather-app.ts<br/>
-                portfolio-site.svelte<br/>
+                macos-diagnostic-utility.go<br/>
+                support-scripts.ps1<br/>
+                qa-test-framework.sh<br/>
               </div>
               
               <div>
@@ -71,7 +71,7 @@ const HeroSection = () => {
               <div className="relative rounded-full w-64 h-64 bg-slate-900 border-4 border-slate-800 overflow-hidden">
                 {/* This would be replaced with an actual image in production */}
                 <div className="w-full h-full flex items-center justify-center text-slate-400">
-                  Developer Portrait
+                  QA Engineer Portrait
                 </div>
               </div>
             </div>
