@@ -103,9 +103,9 @@ export const aboutCards: AboutCard[] = [
     icon: "Server",
   },
   {
-    title: "Technical Support",
-    description: "Resolving complex technical issues with a methodical approach and clear documentation for future reference.",
-    icon: "Headphones",
+    title: "Continuous Learning",
+    description: "Embracing new technologies and constantly expanding my skill set through hands-on projects and practical application.",
+    icon: "BookOpen",
   },
 ];
 
@@ -142,7 +142,7 @@ export const projects: Project[] = [
 
 export const developerInfo = {
   name: "Rick Cohen",
-  title: "Quality Engineer & Diagnostic Tools Developer",
+  title: "Quality Engineer & Learning Developer",
   email: "rickykcohen@gmail.com",
   location: "Remote",
   availability: "Currently working at DNSFilter",
