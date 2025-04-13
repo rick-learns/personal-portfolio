@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 47.4% 11.2%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 47.4% 11.2%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 47.4% 11.2%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 24.6 95% 53.1%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 24.6 95% 53.1%;
+    
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-blue-950 text-foreground overflow-x-hidden;
+  }
+
+  .terminal-window {
+    @apply rounded-lg bg-blue-900 shadow-lg relative;
+  }
+
+  .terminal-header {
+    @apply rounded-t-lg bg-[#1E293B] p-2 flex items-center;
+  }
+
+  .terminal-circle {
+    @apply h-3 w-3 rounded-full mr-1.5;
+  }
+
+  .terminal-prompt::before {
+    content: '$ ';
+    @apply text-orange-500;
+  }
+
+  .terminal-cursor {
+    @apply inline-block w-2.5 h-4 bg-orange-500 animate-[text-blink_1s_steps(5,start)_infinite];
+  }
+
+  .cmd-output {
+    @apply text-indigo-300;
+  }
+
+  .nav-item {
+    @apply relative;
+  }
+
+  .nav-item::after {
+    content: '';
+    @apply absolute -bottom-1.5 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300;
+  }
+
+  .nav-item:hover::after, .nav-item.active::after {
+    @apply w-full;
+  }
+
+  @keyframes text-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes slide-up {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+}
+
+@layer components {
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s ease-out;
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-heading {
+    font-family: 'Poppins', sans-serif;
+  }
+}
