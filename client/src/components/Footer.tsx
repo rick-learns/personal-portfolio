@@ -1,5 +1,5 @@
 import { developerInfo } from '@/lib/data';
-import VersionInfo from './VersionInfo';
+import VersionInfo from './VersionInfo.tsx';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

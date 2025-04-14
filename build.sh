@@ -13,6 +13,7 @@ REPO_DIR="/var/www/rick-learns.dev"
 CLIENT_DIR="$REPO_DIR/client"
 DIST_DIR="$CLIENT_DIR/dist"
 VERSION_FILE="$CLIENT_DIR/src/version.js"
+ENV_PROD_FILE="$CLIENT_DIR/.env.production"
 BRANCH="main"
 WEB_USER="www-data"
 LOG_FILE="$REPO_DIR/deploy-$(date +%Y%m%d-%H%M%S).log"
@@ -151,6 +152,20 @@ EOF
 
 log "Updated version file with new version: $NEW_VERSION (commit: $COMMIT_HASH)"
 
+# Check for environment variables file or create it
+if [ ! -f "$ENV_PROD_FILE" ]; then
+  log "${YELLOW}Production environment file not found. Creating from template...${NC}"
+  cat > "$ENV_PROD_FILE" << EOF
+# Production environment variables
+VITE_GA_MEASUREMENT_ID=G-2WSTR230D3
+VITE_GTM_ID=
+VITE_SITE_URL=https://rick-learns.dev
+EOF
+  log "Created .env.production file with default values. Please update with correct values if needed."
+else
+  log "Using existing .env.production file."
+fi
+
 # Install dependencies and build
 log "${GREEN}Installing dependencies${NC}"
 cd "$CLIENT_DIR" || handle_error "Could not navigate to $CLIENT_DIR"
@@ -204,6 +219,7 @@ log "Version: ${BLUE}$NEW_VERSION${NC} (${YELLOW}${VERSION_TYPE}${NC} update fro
 log "Commit hash: $COMMIT_HASH"
 log "Commit message: $(git log -1 --pretty=%B)"
 log "Deployment time: $BUILD_DATE"
+log "Analytics ID: G-2WSTR230D3"
 log "----------------------------"
 
 exit 0

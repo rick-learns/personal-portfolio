@@ -1,53 +1,41 @@
 import { useEffect } from 'react';
-import { getCLS, getFID, getLCP, getFCP, getTTFB } from 'web-vitals';
+import { onCLS, onFID, onLCP, onFCP, onTTFB } from 'web-vitals';
 
-// Interface for web vitals metric
-interface MetricProps {
-  name: string;
-  value: number;
-  id: string;
-  delta: number;
-}
-
-type MetricReporterFunction = (metric: MetricProps) => void;
-
-// Function to report metrics to the analytics service
-const reportMetric: MetricReporterFunction = (metric) => {
-  // If using Plausible Analytics
-  const plausible = (window as any).plausible;
-  
-  if (plausible) {
-    // Report the metric as a custom event
-    plausible('webvital', {
-      props: {
-        metric: metric.name,
-        value: Math.round(metric.value),
-        id: metric.id
-      }
+// Function to send metrics to Google Analytics
+const sendToGoogleAnalytics = ({ name, delta, value, id }) => {
+  // Assumes window.gtag is available
+  if (window.gtag) {
+    window.gtag('event', name, {
+      event_category: 'Web Vitals',
+      event_label: id,
+      value: Math.round(name === 'CLS' ? delta * 1000 : delta), // CLS needs special handling
+      non_interaction: true, // Prevents this from affecting bounce rate
+      metric_id: id, // Unique identifier for the metric
+      metric_value: value, // The actual value of the metric
+      metric_delta: delta, // The change in the metric
     });
   }
   
-  // Console log metrics in development
+  // Log to console in development
   if (process.env.NODE_ENV === 'development') {
-    console.log(`Web Vital: ${metric.name}`, {
-      value: Math.round(metric.value),
-      delta: Math.round(metric.delta),
-      id: metric.id
+    console.log(`Web Vital: ${name}`, {
+      value: Math.round(value),
+      delta: Math.round(delta),
+      id: id
     });
   }
 };
 
 const PerformanceMonitoring = () => {
   useEffect(() => {
-    // Register web-vitals reporting
-    getCLS(reportMetric);    // Cumulative Layout Shift
-    getFID(reportMetric);    // First Input Delay
-    getLCP(reportMetric);    // Largest Contentful Paint
-    getFCP(reportMetric);    // First Contentful Paint
-    getTTFB(reportMetric);   // Time to First Byte
+    // Register analytics callback for Core Web Vitals
+    onCLS(sendToGoogleAnalytics);
+    onFID(sendToGoogleAnalytics);
+    onLCP(sendToGoogleAnalytics);
+    onFCP(sendToGoogleAnalytics);
+    onTTFB(sendToGoogleAnalytics);
   }, []);
 
-  // This component doesn't render anything visible
   return null;
 };
 

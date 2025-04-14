@@ -1,6 +1,19 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'wouter';
 
+// Type definition for window.gtag
+interface Window {
+  dataLayer: any[];
+  gtag: (...args: any[]) => void;
+}
+
+declare global {
+  interface Window {
+    dataLayer: any[];
+    gtag: (...args: any[]) => void;
+  }
+}
+
 // Get values from environment variables
 const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-2WSTR230D3';
 const GTM_ID = import.meta.env.VITE_GTM_ID;
@@ -8,7 +21,7 @@ const GTM_ID = import.meta.env.VITE_GTM_ID;
 // Only run analytics in production unless explicitly enabled in development
 const enableAnalytics = import.meta.env.PROD || import.meta.env.VITE_ENABLE_ANALYTICS === 'true';
 
-const Analytics = () => {
+const Analytics: React.FC = () => {
   const [location] = useLocation();
 
   // Load Google Analytics
@@ -27,14 +40,16 @@ const Analytics = () => {
       document.head.appendChild(scriptGA);
 
       window.dataLayer = window.dataLayer || [];
-      function gtag() { window.dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', GA_MEASUREMENT_ID, {
+      function gtag(...args: any[]) { 
+        window.dataLayer.push(arguments); 
+      }
+      // @ts-ignore - gtag function has complex typing
+      window.gtag = gtag;
+      window.gtag('js', new Date());
+      window.gtag('config', GA_MEASUREMENT_ID, {
         page_path: location,
         anonymize_ip: true,
       });
-
-      window.gtag = gtag;
     };
 
     // Google Tag Manager script (only if ID is provided)
