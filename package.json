@@ -4,14 +4,14 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-  "frontend": "cd client && npx vite",
-  "backend": "cd server && go run main.go",
-  "dev": "echo \"Please use 'npm run frontend' and 'npm run backend' in separate terminals\" && exit 1",
-  "build:frontend": "cd client && vite build",
-  "build:backend": "cd server && go build -o portfolio-server",
-  "build": "npm run build:frontend && npm run build:backend",
-  "start": "cd server && ./portfolio-server"
-},
+    "frontend": "cd client && npx vite",
+    "backend": "cd server && go run main.go",
+    "dev": "echo \"Please use 'npm run frontend' and 'npm run backend' in separate terminals\" && exit 1",
+    "build:frontend": "cd client && vite build",
+    "build:backend": "cd server && go build -o portfolio-server",
+    "build": "npm run build:frontend && npm run build:backend",
+    "start": "cd server && ./portfolio-server"
+  },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "@jridgewell/trace-mapping": "^0.3.25",
@@ -71,6 +71,7 @@
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^1.1.0",
+    "web-vitals": "^3.5.2",
     "wouter": "^3.3.5",
     "ws": "^8.18.0",
     "zod": "^3.23.8",

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, MapPin, Calendar, Github, Linkedin, Twitter, Dribbble, Send } from 'lucide-react';
+import { Mail, MapPin, Calendar, Github, Linkedin, Twitter, Dribbble, Send, FileDown } from 'lucide-react';
 import TerminalWindow from './TerminalWindow';
 import { developerInfo } from '@/lib/data';
 import { useToast } from '@/hooks/use-toast';
@@ -113,11 +113,25 @@ const ContactSection = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3 mb-4">
                   <Calendar className="text-orange-500 h-5 w-5 mt-1" />
                   <div>
                     <div className="text-orange-500">Availability</div>
                     <span className="text-white">{developerInfo.availability}</span>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <FileDown className="text-orange-500 h-5 w-5 mt-1" />
+                  <div>
+                    <div className="text-orange-500">Resume</div>
+                    <a 
+                      href="/assets/Rick_Cohen_Resume.pdf" 
+                      download="Rick_Cohen_Resume.pdf"
+                      className="text-white hover:text-orange-500 transition-colors"
+                    >
+                      download_resume.pdf
+                    </a>
                   </div>
                 </div>
               </div>

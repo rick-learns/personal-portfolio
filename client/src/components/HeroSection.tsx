@@ -51,7 +51,7 @@ const HeroSection = () => {
               </div>
             </TerminalWindow>
             
-            <div className="flex flex-col sm:flex-row gap-4 mt-8">
+            <div className="flex flex-wrap gap-4 mt-8">
               <a 
                 href="#projects" 
                 className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-md transition-colors shadow-lg shadow-orange-500/20 flex items-center justify-center"
