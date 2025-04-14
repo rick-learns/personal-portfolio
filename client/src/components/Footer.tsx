@@ -1,4 +1,5 @@
 import { developerInfo } from '@/lib/data';
+import VersionInfo from './VersionInfo';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -18,7 +19,9 @@ const Footer = () => {
           
           <div className="text-center md:text-right">
             <p className="text-slate-400 text-sm">© {currentYear} {developerInfo.name}. All rights reserved.</p>
-            <p className="text-slate-500 text-xs mt-1">Built with React, TypeScript & Tailwind CSS</p>
+            <p className="text-slate-500 text-xs mt-1">
+              Built with React, TypeScript & Tailwind CSS <VersionInfo />
+            </p>
           </div>
         </div>
       </div>
