@@ -2,7 +2,6 @@ package routes
 
 import (
 	"net"
-	"sync"
 	"time"
 
 	"github.com/go-playground/validator/v10"
@@ -10,7 +9,6 @@ import (
 	"github.com/rick-learns/portfolio-backend/config"
 	"github.com/rick-learns/portfolio-backend/services"
 	"go.uber.org/zap"
-	"golang.org/x/time/rate"
 )
 
 // ContactRequest defines the structure for contact form submissions
@@ -20,38 +18,27 @@ type ContactRequest struct {
 	Message string `json:"message" validate:"required,min=10,max=500"`
 }
 
-// RateLimiter manages rate limiting for requests
-type RateLimiter struct {
-	visitors map[string]*rate.Limiter
-	mu       sync.Mutex
-}
-
-// NewRateLimiter creates a new rate limiter
-func NewRateLimiter() *RateLimiter {
-	return &RateLimiter{
-		visitors: make(map[string]*rate.Limiter),
-	}
-}
-
-// Allow checks if a request from a specific IP is allowed
-func (r *RateLimiter) Allow(ip string) bool {
-	r.mu.Lock()
-	defer r.mu.Unlock()
-
-	limiter, exists := r.visitors[ip]
-	if !exists {
-		limiter = rate.NewLimiter(rate.Every(24*time.Hour), 10)
-		r.visitors[ip] = limiter
-	}
-
-	return limiter.Allow()
-}
-
 // ContactHandler manages the contact form submission endpoint
 func ContactHandler(appConfig *config.AppConfig) fiber.Handler {
 	validate := validator.New()
 	messageService := services.NewMessageService(appConfig.DB)
-	rateLimiter := NewRateLimiter()
+	
+	// Create a persistent rate limiter with 10 requests per day
+	rateLimiter := services.NewPersistentRateLimiter(appConfig.DB, 10, 24*time.Hour)
+	
+	// Schedule periodic cleanup of expired rate limit entries
+	go func() {
+		ticker := time.NewTicker(1 * time.Hour)
+		defer ticker.Stop()
+		
+		for range ticker.C {
+			if err := rateLimiter.CleanupExpired(); err != nil {
+				appConfig.Logger.Error("Failed to cleanup expired rate limit entries", 
+					zap.Error(err),
+				)
+			}
+		}
+	}()
 
 	return func(c *fiber.Ctx) error {
 		// Parse request body
@@ -82,14 +69,24 @@ func ContactHandler(appConfig *config.AppConfig) fiber.Handler {
 			ip = c.IP()
 		}
 
-		// Rate limiting
-		if !rateLimiter.Allow(ip) {
+		// Persistent rate limiting
+		allowed, attempts, resetTime := rateLimiter.Allow(ip)
+		if !allowed {
 			appConfig.Logger.Warn("Rate limit exceeded", 
 				zap.String("ip", ip),
 				zap.String("email", req.Email),
+				zap.Int("attempts", attempts),
+				zap.Time("reset_time", resetTime),
 			)
+			
+			// Calculate remaining time until rate limit reset
+			remaining := time.Until(resetTime).Round(time.Minute)
+			
 			return c.Status(fiber.StatusTooManyRequests).JSON(fiber.Map{
-				"error": "Daily contact limit exceeded. Please try again tomorrow or contact via LinkedIn.",
+				"error": "Daily contact limit exceeded. Please try again later or contact via LinkedIn.",
+				"reset_in_minutes": int(remaining.Minutes()),
+				"attempts": attempts,
+				"max_attempts": 10,
 				"alternative": fiber.Map{
 					"platform": "LinkedIn",
 					"url": "https://linkedin.com/in/rickykcohen",
@@ -97,17 +94,22 @@ func ContactHandler(appConfig *config.AppConfig) fiber.Handler {
 			})
 		}
 
+		// Add HTML sanitization for user input
+		sanitizedName := services.SanitizeHTML(req.Name)
+		sanitizedEmail := services.SanitizeHTML(req.Email)
+		sanitizedMessage := services.SanitizeHTML(req.Message)
+
 		// Save message to database
 		err = messageService.SaveMessage(services.ContactFormData{
-			Name:    req.Name,
-			Email:   req.Email,
-			Message: req.Message,
+			Name:    sanitizedName,
+			Email:   sanitizedEmail,
+			Message: sanitizedMessage,
 		})
 
 		if err != nil {
 			appConfig.Logger.Error("Failed to save message", 
 				zap.Error(err),
-				zap.String("email", req.Email),
+				zap.String("email", sanitizedEmail),
 			)
 			
 			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
@@ -117,12 +119,14 @@ func ContactHandler(appConfig *config.AppConfig) fiber.Handler {
 
 		// Log successful submission
 		appConfig.Logger.Info("Contact form submission", 
-			zap.String("name", req.Name),
-			zap.String("email", req.Email),
+			zap.String("name", sanitizedName),
+			zap.String("email", sanitizedEmail),
+			zap.Int("attempt", attempts),
 		)
 
 		return c.Status(fiber.StatusOK).JSON(fiber.Map{
 			"message": "Thank you! Your message has been received and will be reviewed soon.",
+			"remaining_attempts": 10 - attempts,
 		})
 	}
 }

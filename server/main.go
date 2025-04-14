@@ -13,9 +13,30 @@ import (
 )
 
 func main() {
-	// Initialize logger
+	// Initialize standard logger
 	logger := services.NewLogger()
 	defer logger.Sync()
+
+	// Initialize security logger
+	securityLogger, err := services.NewSecurityLogger()
+	if err != nil {
+		logger.Fatal("Failed to initialize security logger", 
+			zap.String("error", err.Error()),
+		)
+	}
+	defer securityLogger.Close()
+
+	// Log application startup
+	securityLogger.LogSecurityEvent(
+		services.EventConfigChanged,
+		services.SeverityInfo,
+		"system",
+		"127.0.0.1",
+		map[string]interface{}{
+			"action": "application_startup",
+			"version": "1.0.0",
+		},
+	)
 
 	// Initialize database
 	db, err := services.NewBadgerDB()
@@ -23,11 +44,21 @@ func main() {
 		logger.Fatal("Failed to initialize database", 
 			zap.String("error", err.Error()),
 		)
+		securityLogger.LogSecurityEvent(
+			services.EventDBAccess,
+			services.SeverityCritical,
+			"system",
+			"127.0.0.1",
+			map[string]interface{}{
+				"action": "database_initialization",
+				"error": err.Error(),
+			},
+		)
 	}
 	defer db.Close()
 
-	// Create application configuration
-	appConfig := config.NewAppConfig(logger, db)
+	// Create application configuration with both loggers
+	appConfig := config.NewAppConfig(logger, securityLogger, db)
 
 	// Setup routes
 	app := routes.SetupRoutes(appConfig)
@@ -37,7 +68,28 @@ func main() {
 	
 	// Start server
 	logger.Info("Server starting on port " + port)
+	securityLogger.LogSecurityEvent(
+		services.EventConfigChanged,
+		services.SeverityInfo,
+		"system",
+		"127.0.0.1",
+		map[string]interface{}{
+			"action": "server_start",
+			"port": port,
+		},
+	)
+	
 	if err := app.Listen(port); err != nil {
+		securityLogger.LogSecurityEvent(
+			services.EventConfigChanged,
+			services.SeverityCritical,
+			"system",
+			"127.0.0.1",
+			map[string]interface{}{
+				"action": "server_failure",
+				"error": err.Error(),
+			},
+		)
 		log.Fatalf("Server failed to start: %v", err)
 	}
 }
