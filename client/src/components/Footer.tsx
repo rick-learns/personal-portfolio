@@ -19,9 +19,13 @@ const Footer = () => {
           
           <div className="text-center md:text-right">
             <p className="text-slate-400 text-sm">© {currentYear} {developerInfo.name}. All rights reserved.</p>
-            <p className="text-slate-500 text-xs mt-1">
-              Built with React, TypeScript & Tailwind CSS <VersionInfo />
-            </p>
+            <div className="flex items-center justify-center md:justify-end mt-1 space-x-1.5">
+              <p className="text-slate-500 text-xs">
+                Built with React, TypeScript & Tailwind CSS
+              </p>
+              <span className="text-slate-700 text-xs">|</span>
+              <VersionInfo className="text-slate-600 hover:text-slate-400 transition-colors duration-200" />
+            </div>
           </div>
         </div>
       </div>

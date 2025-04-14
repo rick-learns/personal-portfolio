@@ -7,7 +7,7 @@
 #   ./build.sh major            # Increments major version
 #   ./build.sh minor            # Increments minor version
 #   ./build.sh patch            # Increments patch version (same as no argument)
-s
+
 # Set variables
 REPO_DIR="/var/www/rick-learns.dev"
 CLIENT_DIR="$REPO_DIR/client"
