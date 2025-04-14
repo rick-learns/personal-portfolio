@@ -9,8 +9,8 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <div className="flex items-center">
-              <span className="font-mono font-semibold text-orange-500 text-xl">qa@</span>
-              <span className="font-mono font-semibold text-white">rickcohen</span>
+              <span className="font-mono font-semibold text-white text-xl">rickcohen</span>
+              <span className="font-mono font-semibold text-orange-500">@dev</span>
               <span className="font-mono text-orange-500 animate-[text-blink_1s_steps(5,start)_infinite]">_</span>
             </div>
             <p className="text-slate-400 mt-2 text-sm">{developerInfo.title}</p>

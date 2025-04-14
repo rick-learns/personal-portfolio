@@ -1,4 +1,4 @@
-import { ShieldCheck, Code2, Server, Headphones } from 'lucide-react';
+import { ShieldCheck, Code2, Server, Brain } from 'lucide-react';
 import TerminalWindow from './TerminalWindow';
 import { aboutCards } from '@/lib/data';
 
@@ -8,7 +8,7 @@ const AboutSection = () => {
     ShieldCheck: <ShieldCheck className="text-orange-500" />,
     Code2: <Code2 className="text-orange-500" />,
     Server: <Server className="text-orange-500" />,
-    Headphones: <Headphones className="text-orange-500" />
+    BookOpen: <Brain className="text-orange-500" />
   };
 
   return (
@@ -20,7 +20,7 @@ const AboutSection = () => {
           </h2>
           <div className="h-1 w-24 bg-orange-500 rounded-full mb-8"></div>
           <p className="text-center text-slate-300 max-w-2xl font-sans">
-            Quality Engineer with a passion for building diagnostic tools and improving software reliability.
+            Quality Engineer with a passion for creating tools and improving software reliability.
             With a gaming background, I bring focus, adaptability, and teamwork to every challenge.
           </p>
         </div>

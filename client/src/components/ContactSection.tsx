@@ -42,11 +42,20 @@ const ContactSection = () => {
       return;
     }
     
-    // In a real application, you would send the form data to a backend service here
+    // Construct mailto URL
+    const recipient = 'rick@rick-learns.dev';
+    const subjectText = formData.subject ? formData.subject : `Portfolio Contact from ${formData.name}`;
+    const subject = encodeURIComponent(`[Portfolio Contact] ${subjectText}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+    const mailtoUrl = `mailto:${recipient}?subject=${subject}&body=${body}`;
     
+    // Open email client
+    window.location.href = mailtoUrl;
+    
+    // Show confirmation toast
     toast({
-      title: "Message Sent",
-      description: "Your message has been sent successfully!",
+      title: "Email Client Opened",
+      description: "Your email client has been opened with your message. Please send the email to complete your contact request.",
       variant: "default",
     });
     
@@ -90,8 +99,8 @@ const ContactSection = () => {
                   <Mail className="text-orange-500 h-5 w-5 mt-1" />
                   <div>
                     <div className="text-orange-500">Email</div>
-                    <a href={`mailto:${developerInfo.email}`} className="text-white hover:text-orange-500 transition-colors">
-                      {developerInfo.email}
+                    <a href="mailto:rick@rick-learns.dev" className="text-white hover:text-orange-500 transition-colors">
+                      rick@rick-learns.dev
                     </a>
                   </div>
                 </div>
@@ -142,7 +151,7 @@ const ContactSection = () => {
                 <label htmlFor="name" className="block font-mono text-sm mb-2">Name</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-user text-slate-500"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-user text-slate-500"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                   </div>
                   <input 
                     type="text" 
@@ -159,7 +168,7 @@ const ContactSection = () => {
                 <label htmlFor="email" className="block font-mono text-sm mb-2">Email</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-mail text-slate-500"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail text-slate-500"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                   </div>
                   <input 
                     type="email" 
@@ -176,7 +185,7 @@ const ContactSection = () => {
                 <label htmlFor="subject" className="block font-mono text-sm mb-2">Subject</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-briefcase text-slate-500"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-briefcase text-slate-500"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
                   </div>
                   <input 
                     type="text" 
@@ -206,7 +215,7 @@ const ContactSection = () => {
                 className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-md transition-colors shadow-lg shadow-orange-500/20 flex items-center justify-center"
               >
                 <Send className="mr-2 h-5 w-5" />
-                Send Message
+                Open Email Client
               </button>
             </form>
           </div>

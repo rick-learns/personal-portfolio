@@ -1,0 +1,46 @@
+Personal Portfolio Project Overview:
+
+Frontend (React TypeScript):
+- Tech Stack: 
+  * React with TypeScript
+  * Wouter for routing
+  * TanStack Query
+  * Tailwind CSS
+  * Lucide React icons
+
+- Main Pages:
+  * Home Page with sections:
+    - Header
+    - Hero Section
+    - About Section
+    - Skills Section
+    - Projects Section
+    - Contact Section
+    - Footer
+  * 404 Not Found page
+
+- Styling:
+  * Dark theme (slate-950 background)
+  * Custom animations
+  * Google Fonts: Inter, JetBrains Mono, Poppins
+  * Terminal-like design elements
+
+Backend (Express TypeScript):
+- Minimal server setup
+- Placeholder for route registration
+- Storage interface prepared but not fully implemented
+
+Project Structure:
+- /client: Frontend React application
+  * src/components: Reusable UI components
+  * src/pages: Page components
+  * src/lib: Utility functions
+  * src/hooks: Custom React hooks
+- /server: Backend Express server
+- /shared: Potential shared types/utilities
+
+Notable Features:
+- Responsive design
+- Custom UI components
+- Animated terminal-style elements
+- Modular component structure

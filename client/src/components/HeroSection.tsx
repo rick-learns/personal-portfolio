@@ -72,31 +72,32 @@ const HeroSection = () => {
           <div className="order-1 md:order-2 flex justify-center animate-fade-in">
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-orange-400 opacity-70 blur-lg"></div>
-              <div className="relative w-64 h-64 bg-slate-900 border-4 border-slate-800 overflow-hidden rounded-xl font-mono text-xs">
-                <div className="p-4 h-full flex flex-col">
-                  <div className="flex items-center mb-2">
+              <div className="relative w-96 bg-slate-900 border-4 border-slate-800 overflow-hidden rounded-xl font-mono text-xs shadow-xl">
+                <div className="p-4 flex flex-col">
+                  <div className="flex items-center mb-4">
                     <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
                     <div className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                     <div className="ml-auto text-slate-400 text-xs">code.tsx</div>
                   </div>
-                  <div className="flex-1 overflow-auto text-left">
-                    <pre className="text-slate-300">
-                      <span className="text-orange-400">function</span> <span className="text-blue-400">RickCohen</span>() {"{"}
-                        <span className="text-orange-400">const</span> <span className="text-green-400">skills</span> = [
-                          <span className="text-yellow-300">'QA'</span>,
-                          <span className="text-yellow-300">'Automation'</span>,
-                          <span className="text-yellow-300">'React'</span>
-                        ];
-                        
-                        <span className="text-orange-400">return</span> (
-                          <span className="text-slate-500">{`<`}</span><span className="text-green-400">Developer</span>
-                            <span className="text-blue-400"> passion</span>=<span className="text-yellow-300">"learning"</span>
-                            <span className="text-blue-400"> skills</span>={"{"}skills{"}"}
-                          <span className="text-slate-500">{`/>`}</span>
-                        );
-                      {"}"}
-                    </pre>
+                  <div className="text-left">
+                    <pre className="text-slate-300 text-sm leading-relaxed">
+<span className="text-orange-400">function</span> <span className="text-blue-400">RickCohen</span>() {"{"}
+  <span className="text-orange-400">const</span> <span className="text-green-400">skills</span> = [
+    <span className="text-yellow-300">'QA'</span>,
+    <span className="text-yellow-300">'Automation'</span>,
+    <span className="text-yellow-300">'React'</span>,
+    <span className="text-yellow-300">'TypeScript'</span>,
+    <span className="text-yellow-300">'GoLang'</span>
+  ];
+  
+  <span className="text-orange-400">return</span> (
+    <span className="text-slate-500">{`<`}</span><span className="text-green-400">Developer</span>
+      <span className="text-blue-400"> passion</span>=<span className="text-yellow-300">"learning"</span>
+      <span className="text-blue-400"> skills</span>={"{"}skills{"}"}
+    <span className="text-slate-500">{`/>`}</span>
+  );
+{"}"}</pre>
                   </div>
                 </div>
               </div>

@@ -94,7 +94,7 @@ export const aboutCards: AboutCard[] = [
   },
   {
     title: "Automation & Tools",
-    description: "Developing diagnostic tools and scripts that improve workflow efficiency and solve complex technical challenges.",
+    description: "Developing tools, projects, and scripts that improve workflow and personal efficiency and solve complex technical challenges.",
     icon: "Code2",
   },
   {
@@ -132,11 +132,11 @@ export const projects: Project[] = [
     technologies: ["Test Automation", "Exploratory Testing", "JIRA", "Confluence"],
   },
   {
-    title: "Developer Portfolio Website",
-    description: "Built a modern, responsive portfolio website using React, TypeScript, and Tailwind CSS with a terminal-inspired aesthetic to showcase technical skills and projects.",
-    tags: ["React", "TypeScript", "Tailwind CSS", "Responsive Design"],
-    fileType: "[React, TypeScript, Web]",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Responsive Design"],
+    title: "My Personal Portfolio Website",
+    description: "Built a modern, responsive portfolio website with a Go backend (Fiber) and React frontend. Features a terminal-inspired aesthetic, contact form with email integration, and responsive design using TypeScript and Tailwind CSS.",
+    tags: ["React", "TypeScript", "Go", "Fiber", "Tailwind CSS"],
+    fileType: "[React, Go, TypeScript]",
+    technologies: ["React", "Go", "Fiber", "TypeScript", "Tailwind CSS", "BadgerDB"],
   },
 ];
 

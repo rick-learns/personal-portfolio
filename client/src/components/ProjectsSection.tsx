@@ -12,7 +12,7 @@ const ProjectsSection = () => {
           </h2>
           <div className="h-1 w-24 bg-orange-500 rounded-full mb-8"></div>
           <p className="text-center text-slate-300 max-w-2xl font-sans">
-            A selection of my notable projects, showcasing my expertise in quality engineering and diagnostic tool development.
+            A selection of my notable projects, showcasing my expertise in quality engineering and developmental work.
           </p>
         </div>
         
